@@ -13,13 +13,25 @@ public class ControleurCamera : MonoBehaviour
 
     private float rotation;
 
-    private void Deplacer(InputAction.CallbackContext contexte)
+    public void Deplacer(InputAction.CallbackContext contexte)
     {
         deplacement = contexte.action.ReadValue<Vector2>();
+        Debug.Log("Move");
     }
 
-    private void Rotater(InputAction.CallbackContext contexte)
+    public void Rotater(InputAction.CallbackContext contexte)
     {
         rotation = contexte.action.ReadValue<float>();
+        Debug.Log("Rotate");
+    }
+
+    private void FixedUpdate()
+    {
+        // Déplacement dans le plan XZ
+        Vector3 deplacementEffectif = (deplacement.y * transform.forward + deplacement.x * transform.right).normalized;
+        transform.position += deplacementEffectif * vitesse * Time.deltaTime;
+
+        // Rotation autour de l'axe des Y
+        transform.Rotate(Vector3.left, rotation * vitesseRotation * Time.deltaTime);
     }
 }

@@ -31,7 +31,6 @@ public class TournerAutour : MonoBehaviour
          * Vector3.up == Vector3(0,1,0) ET 20 * Time.deltaTime == 20 degrés par seconde.
          */
         mettreAJourRevolution();
-        Debug.Log(controleurTemps.RatioTemps.ToString());
         transform.RotateAround(cible.transform.position, Vector3.up, vitesse * Time.deltaTime);
     }
 
