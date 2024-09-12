@@ -1,46 +1,44 @@
-using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
-using System.Runtime.CompilerServices;
-using System;
-using UnityEngine.Rendering;
-using UnityEngine.Rendering.Universal;
 
+/// <summary>
+/// Classe pour gérer la rotation des astres
+/// </summary>
 public class TournerAutour : MonoBehaviour
 {
-    /* Code inspiré du site web : https://docs.unity3d.com/ScriptReference/Transform.RotateAround.html */
-
-    // À assigner dans l'inspecteur
+    /// <summary>
+    /// On fait le tour de quel objet?
+    /// </summary>
     public GameObject cible;
-    // Appeler le controleur
+    /// <summary>
+    /// Combien de jour on passe par seconde
+    /// </summary>
     public ControleurTemps controleurTemps;
-    // Vitesse de l'objet (1 seconde = 1.0 année)
+    /// <summary>
+    /// Variable pour les calculs
+    /// </summary>
     [SerializeField]
     private float revolution;
     private float vitesse;
 
-    private void Awake()
-    {
-        mettreAJourRevolution();
-    }
-    // Pour chaque frame
+    /// <summary>
+    /// Fonction pour gérer la vitesse des révolutions.
+    /// TRÈS IMPORTANT -> Si on n'a pas ça et qu'on change le Ratio, rien ne sera mis à jour.
+    /// TRÈS IMPORTANT (2) -> J'ai retiré mon Awake, donc c'est le seul moyen d'enclencher le mouvement.
+    /// </summary>
     void Update()
     {
-        /* Exemple d'utilisation
-         * transform.RotateAround(target.transform.position, Vector3.up, 20 * Time.deltaTime); 
-         * Vector3.up == Vector3(0,1,0) ET 20 * Time.deltaTime == 20 degrés par seconde.
-         */
         mettreAJourRevolution();
         transform.RotateAround(cible.transform.position, Vector3.up, vitesse * Time.deltaTime);
     }
 
+    /// <summary>
+    /// Fonction pour convertir en degré une représention de N rotation sur 365 jours
+    /// </summary>
     private void mettreAJourRevolution()
     {
-        // variable pour la lecture
         int annee = 365;
         float ratioTemps = controleurTemps.RatioTemps;
 
-        // conversion pour savoir combien de degré représente N sur 365 jours
         vitesse = ((annee * ratioTemps) * 360) / revolution;
     }
 }

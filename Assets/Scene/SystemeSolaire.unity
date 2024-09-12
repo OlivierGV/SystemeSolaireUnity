@@ -596,6 +596,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 2cd4afce-6ddd-4e34-a061-ebcbb16a6642
     m_ActionName: 'Player/Rotation[/Keyboard/v,/Keyboard/c]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 330585549}
+        m_TargetAssemblyTypeName: ControleurCamera, Assembly-CSharp
+        m_MethodName: Zoomer
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c58c28f6-f11a-4437-ae2d-7bc60a57fb47
+    m_ActionName: 'Player/Zoomer[/Keyboard/q]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 330585549}
+        m_TargetAssemblyTypeName: ControleurCamera, Assembly-CSharp
+        m_MethodName: Dezoomer
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: dde395a2-d719-40aa-9a27-eb35b179f1e0
+    m_ActionName: 'Player/Dezoomer[/Keyboard/z]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
